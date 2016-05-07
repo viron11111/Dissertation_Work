@@ -1,0 +1,11 @@
+<launch>
+  <node pkg="anglerfish" type="ms5837_script.py" name="MS5837" respawn="true">
+  </node>
+  <node pkg="anglerfish" type="t100_feedback_script.py" name="thruster1" respawn="true">
+	<param name="register" value="41" />
+  </node>
+  <node pkg="anglerfish" type="t100_feedback_script.py" name="thruster2" respawn="true">
+        <param name="register" value="42" />
+  </node>
+
+</launch>
