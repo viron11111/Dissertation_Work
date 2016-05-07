@@ -14,7 +14,6 @@ bus = smbus.SMBus(1)
 
 #home  = rospy.get_param("/t100/register")
 
-T100_ADDR            = rospy.get_param('register') #0x29
 T100_PULSE_COUNT_1   = 0x02
 T100_PULSE_COUNT_2   = 0x03
 T100_VOLTAGE_1       = 0x04
@@ -61,10 +60,13 @@ def RPM(pulse, _rpmTimer):
 	_rpmTimer = time.clock()
 	return _rpm, _rpmTimer
 
-class read_registers:
+class read_registers():
 
 	def __init__(self):
-		self.ROV_pub = rospy.Publisher('t100_thruster_feedback', t100_thruster_feedback, queue_size=1)
+		T100_ADDR = rospy.get_param('~register')
+		T100_name = rospy.get_param('~name')
+
+		self.ROV_pub = rospy.Publisher(T100_name, t100_thruster_feedback, queue_size=1)
 
 		t100 = t100_thruster_feedback()
 
@@ -105,7 +107,8 @@ class read_registers:
 				actual_current = current(current_temp_reg)
 
 				t100.t100_header = Header(
-					stamp = rospy.get_rostime()
+					stamp = rospy.get_rostime(),
+					frame_id = str(T100_ADDR)
 				)
 				
 				t100.temperature = thruster_temp
@@ -121,7 +124,7 @@ class read_registers:
 			rate.sleep()
 
 def main(args):
-	rospy.init_node('t100_feedback_sensors', anonymous=True)
+	rospy.init_node('t100_feedback_sensors')#, anonymous=True)
 
 	read_registers()
 
