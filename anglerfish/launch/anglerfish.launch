@@ -9,6 +9,10 @@
         <rosparam param="register">42</rosparam>
 	<rosparam param="name">"thruster2"</rosparam>
   </node>
+  <node pkg="anglerfish" type="t100_feedback_script.py" name="thruster3" respawn="true">
+        <rosparam param="register">43</rosparam>
+        <rosparam param="name">"thruster3"</rosparam>
+  </node>
 
 
 </launch>
