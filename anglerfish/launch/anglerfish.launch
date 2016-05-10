@@ -1,16 +1,28 @@
 <launch>
   <node pkg="anglerfish" type="ms5837_script.py" name="MS5837" respawn="true">
   </node>
-  <node pkg="anglerfish" type="t100_feedback_script.py" name="thruster1" respawn="false">
+  <node pkg="anglerfish" type="t100_feedback_script.py" name="thruster1" respawn="true">
 	<rosparam param="register">41</rosparam>
 	<rosparam param="name">"thruster1"</rosparam>
   </node>
-  <node pkg="anglerfish" type="t100_feedback_script.py" name="thruster2" respawn="false">
+  <node pkg="anglerfish" type="t100_feedback_script.py" name="thruster2" respawn="true">
         <rosparam param="register">42</rosparam>
 	<rosparam param="name">"thruster2"</rosparam>
   </node>
   <node pkg="anglerfish" type="t100_feedback_script.py" name="thruster3" respawn="true">
         <rosparam param="register">43</rosparam>
+        <rosparam param="name">"thruster3"</rosparam>
+  </node>
+  <node pkg="anglerfish" type="t100_feedback_script.py" name="thruster4" respawn="true">
+        <rosparam param="register">44</rosparam>
+        <rosparam param="name">"thruster3"</rosparam>
+  </node>
+  <node pkg="anglerfish" type="t100_feedback_script.py" name="thruster5" respawn="true">
+        <rosparam param="register">45</rosparam>
+        <rosparam param="name">"thruster3"</rosparam>
+  </node>
+  <node pkg="anglerfish" type="t100_feedback_script.py" name="thruster6" respawn="true">
+        <rosparam param="register">46</rosparam>
         <rosparam param="name">"thruster3"</rosparam>
   </node>
 
