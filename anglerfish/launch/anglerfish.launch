@@ -15,15 +15,15 @@
   </node>
   <node pkg="anglerfish" type="t100_feedback_script.py" name="thruster4" respawn="true">
         <rosparam param="register">44</rosparam>
-        <rosparam param="name">"thruster3"</rosparam>
+        <rosparam param="name">"thruster4"</rosparam>
   </node>
   <node pkg="anglerfish" type="t100_feedback_script.py" name="thruster5" respawn="true">
         <rosparam param="register">45</rosparam>
-        <rosparam param="name">"thruster3"</rosparam>
+        <rosparam param="name">"thruster5"</rosparam>
   </node>
   <node pkg="anglerfish" type="t100_feedback_script.py" name="thruster6" respawn="true">
         <rosparam param="register">46</rosparam>
-        <rosparam param="name">"thruster3"</rosparam>
+        <rosparam param="name">"thruster6"</rosparam>
   </node>
 
 
