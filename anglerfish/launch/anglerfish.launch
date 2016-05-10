@@ -26,5 +26,9 @@
         <rosparam param="name">"thruster6"</rosparam>
   </node>
 
+  <include file="$(find usb_cam)/launch/usb_cam-test.launch"/>
+
+  <node pkg="servo_control" type="move_servo.py" name="camera_servo" respawn="true">
+  </node>
 
 </launch>
