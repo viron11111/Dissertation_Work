@@ -1,5 +1,6 @@
 #!/usr/bin/python
 
+#MS5837 pressure and temperature sensor, located on back on Anglerfish
 #translated from BlueRobotics Github: https://github.com/bluerobotics/BlueRobotics_MS5837_Library
 
 #import roslib
@@ -108,15 +109,15 @@ def calculate(D1,D2):
         OFF2 = OFF-OFFi           #Calculate pressure and temp second order
         SENS2 = SENS-SENSi
 
-        TEMP = (TEMP-Ti)
-        P = (((D1*SENS2)/2097152-OFF2)/8192)
+        TEMP = (TEMP-Ti) #incorporate offset
+        P = (((D1*SENS2)/2097152-OFF2)/8192) #pressure in mbar
 
         temperature = TEMP/100.0
         pressure = P/10.0
         fluid_density = 1029
 
-        depth = ((pressure-1013.25)/(fluid_density*9.80665))*100
-        altitude = (1-pow((pressure/1013.25),.190284))*145366.45
+        depth = ((pressure-1013.25)/(fluid_density*9.80665))*100  #depth in meters, positive equals depth in water, negative equals above water level
+        altitude = (1-pow((pressure/1013.25),.190284))*145366.45  #another calculator for determining altitude, just because
 
         return depth, temperature, pressure
 

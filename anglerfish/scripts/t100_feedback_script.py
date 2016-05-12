@@ -1,5 +1,11 @@
 #!/usr/bin/python
 
+#Anglerfish has 6 T100 Thrusters with Blue ESCs.  Each thruster had its firmware manually updated 
+#(using Arduino and AVRdude in Ubuntu) to acquire a unique I2C address.
+#See BlueRobotics T100 instructions on how to program ESCs.
+#I2C address' are: 0x29, 0x2A, 0x2B, 0x2C, 0x2D, 0x2E
+#since launch file doesn't support hex: 41, 42, 43, 44, 45, 46
+
 import sys
 import smbus
 import time
